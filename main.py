@@ -133,18 +133,18 @@ def glow_esp():
                     glow_index = pm.read_int(entity + m_iGlowIndex)
 
                     if entity_team == local_player_team:
-                        pm.write_float(glow_manager + (glow_index * 0x38) + 0x4, float(0))
+                        pm.write_float(glow_manager + (glow_index * 0x38) + 0x8, float(0))
+                        pm.write_float(glow_manager + (glow_index * 0x38) + 0xC, float(1))
+                        pm.write_float(glow_manager + (glow_index * 0x38) + 0x10, float(0))
+                        pm.write_float(glow_manager + (glow_index * 0x38) + 0x14, float(1))
+                    else:
                         pm.write_float(glow_manager + (glow_index * 0x38) + 0x8, float(1))
                         pm.write_float(glow_manager + (glow_index * 0x38) + 0xC, float(0))
                         pm.write_float(glow_manager + (glow_index * 0x38) + 0x10, float(1))
-                    else:
-                        pm.write_float(glow_manager + (glow_index * 0x38) + 0x4, float(1))
-                        pm.write_float(glow_manager + (glow_index * 0x38) + 0x8, float(0))
-                        pm.write_float(glow_manager + (glow_index * 0x38) + 0xC, float(1))
-                        pm.write_float(glow_manager + (glow_index * 0x38) + 0x10, float(1))
+                        pm.write_float(glow_manager + (glow_index * 0x38) + 0x14, float(1))
 
-                    pm.write_int(glow_manager + (glow_index * 0x38) + 0x24, 1)
-                    pm.write_int(glow_manager + (glow_index * 0x38) + 0x25, 1)
+                    pm.write_int(glow_manager + (glow_index * 0x38) + 0x28, 1)
+                    pm.write_int(glow_manager + (glow_index * 0x38) + 0x29, 1)
 
 
 def recoil_control_system():
